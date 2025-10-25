@@ -1,0 +1,65 @@
+Managing User Accounts with useradd, usermod, and userdel in Linux 
+
+
+Managing user accounts is a fundamental skill for Linux administrators. Linux provides several tools to handle user account creation, modification, and deletion. The three most commonly used commands for this are useradd, usermod, and userdel. In this tutorial, we’ll explore each of these commands in detail, explaining their usage and providing practical examples to help you manage users effectively. 
+
+
+1. useradd: Creating New User Accounts The useradd command is used to create new user accounts in Linux. By default, useradd creates a user with a home directory, but some options allow you to customize the user’s environment further. 
+
+
+Syntax: 
+
+sudo useradd [options] username 
+
+Common Options: 
+●      -m: Create the user's home directory if it does not exist. 
+●      -d: Specify a custom home directory. 
+●      -s: Set the default shell for the user (e.g., /bin/bash). 
+●      -g: Specify the user’s primary group. 
+●      -G: Specify additional groups the user should belong to. 
+●      -c: Add a comment (typically used for the user’s full name). 
+
+Example: Let’s say you need to create a user called john with a home directory, a custom shell, and additional group memberships. 
+
+sudo useradd -m -s /bin/bash -G sudo,developers -c "John Doe" john
+
+After running this command, you should also set a password for the user using the passwd command: 
+
+sudo passwd john
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+2. usermod: Modifying Existing User Accounts 
+
+The usermod command is used to modify an existing user’s account settings. You can change various parameters, such as the user’s home directory, shell, group memberships, and more. 
+
+Syntax: 
+sudo usermod [options] username Common Options: 
+●      -d: Change the user's home directory. 
+●      -m: Move the contents of the old home directory to the new one. 
+●      -s: Change the user's default shell. 
+●      -g: Change the primary group of the user. 
+●      -G: Add the user to additional groups. 
+●      -L: Lock the user’s account (prevents login). 
+●      -U: Unlock the user’s account. 
+
+Example: Let’s say you want to change john’s home directory to /home/john_new and change their default shell to /bin/zsh. 
+
+
+sudo usermod -d /home/john_new -s /bin/zsh john 
+
+This command changes john’s home directory to the specified path and updates their shell to /bin/zsh.
+
+
+
+
+
+
+
