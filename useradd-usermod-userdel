@@ -57,6 +57,36 @@ sudo usermod -d /home/john_new -s /bin/zsh john
 
 This command changes john’s home directory to the specified path and updates their shell to /bin/zsh.
 
+If you want to add john to an additional group, such as admin, you can use the -G option: 
+
+sudo usermod -aG admin john 
+
+Note: The -a flag is essential when adding a user to an additional group. Without it, the user will be removed from any groups not listed in the command.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+3. userdel: Deleting User Accounts 
+
+The userdel command is used to delete a user account from the system. It removes the user’s account information but can also remove the user’s home directory and files, depending on the options you use. 
+
+sudo userdel [options] username 
+
+Common Options: 
+●      -r: Remove the user's home directory and mail spool. 
+●      -f: Force the deletion of a user account, even if the user is still logged in. 
+
+Example: To delete john’s user account and remove their home directory and files, use the following command: 
+
+sudo userdel -r john 
+
+This will delete the user john along with their home directory and any files in it. 
+
+If you need to forcefully remove the user even if they are logged in, use: 
+
+sudo userdel -rf john
+
+
 
 
 
