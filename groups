@@ -1,0 +1,38 @@
+In Linux, users can be assigned to groups. Each user has a primary group, and they can also be members of additional secondary groups. Groups help with organizing permissions and access control. 
+
+To add a new user to an existing group during creation: 
+
+
+sudo useradd -G groupname username 
+
+To add an existing user to a group: 
+
+sudo usermod -aG groupname username 
+
+Viewing User Information You can check a user's details using the id command. For example, to view john’s user and group information: 
+
+id john 
+
+This will output the user’s UID, primary group, and any secondary groups they belong to. 
+
+Another way to view user information is by checking the /etc/passwd file, which contains details about every user account on the system: 
+
+cat /etc/passwd 
+
+Locking and Unlocking User Accounts If you need to temporarily prevent a user from logging in, you can lock their account: 
+
+
+sudo usermod -L username
+
+
+
+To unlock the account, you can run:
+
+sudo usermod -U username
+
+
+
+Changing User Passwords Changing a user’s password is straightforward with the passwd command. To change john’s password, run: 
+
+sudo passwd john
+
