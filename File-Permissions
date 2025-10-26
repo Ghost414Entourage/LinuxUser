@@ -1,0 +1,81 @@
+Understanding File Permissions and Ownership In Linux, every file and directory has three main permissions: 
+●      Read (r): Permission to read the file’s content. 
+●      Write (w): Permission to modify the file. 
+●      Execute (x): Permission to execute a file (if it's a script or binary).
+
+
+
+
+Each file and directory also has an owner and a group assigned to it. These permissions are represented as three sets of characters: 
+●      Owner: The user who owns the file. 
+●      Group: The group that has access to the file. 
+●      Others: All users who are not the owner or part of the group.
+
+
+The permissions are typically displayed as a 10-character string. For example: bash Copy code -rwxr-xr--
+
+
+●      The first character indicates the file type (- for regular file, d for directory). 
+●      The next three characters show the owner's permissions (read, write, execute). 
+●      The next three characters show the group’s permissions. 
+●      The last three characters show permissions for others.
+
+
+
+Changing File Permissions with chmod The chmod command allows you to change the permissions of a file or directory. 
+
+chmod [permissions] filename
+
+
+Permissions can be specified in either symbolic or numeric format. 
+
+●      Symbolic format: Use letters (r, w, x) and operators (+, -, =). 
+
+○      + adds a permission. 
+○      - removes a permission. 
+○      = sets permissions exactly.
+
+
+Example: Give execute permission to the owner of the file: 
+
+chmod u+x file.txt
+
+
+●      Numeric format: Permissions are represented by a three-digit number. 
+
+○      4 represents read. 
+○      2 represents write. 
+○      1 represents execute. 
+○      For example, 755 means: 
+
+■      Owner: read, write, execute (7) 
+■      Group: read, execute (5) 
+■      Others: read, execute (5)
+
+
+
+
+To set permissions to 755: 
+
+chmod 755 file.txt
+
+
+Changing Ownership with chown 
+The chown command is used to change the ownership of a file or directory. 
+
+chown owner:group filename
+
+
+Example: Change the owner of file.txt to john and the group to developers: 
+
+sudo chown john:developers file.txt
+
+
+You can also change ownership recursively with the -R 
+
+sudo chown -R john:developers /path/to/directory
+
+
+
+
+
